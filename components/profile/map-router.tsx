@@ -1,12 +1,14 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
-import CustomBackground from "@/components/custom-bg";
 import MapView from "react-native-maps";
 
-const Map = () => {
+const MapRoute = () => {
   return (
-    <CustomBackground>
-      <View className="absolute top-16 mx-5 left-0 right-0 h-14 bg-white z-10  rounded-full "></View>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <MapView
         initialRegion={{
           latitude: 37.78825,
@@ -16,8 +18,8 @@ const Map = () => {
         }}
         style={{ height: "100%", width: "100%" }}
       />
-    </CustomBackground>
+    </View>
   );
 };
 
-export default Map;
+export default MapRoute;

@@ -1,13 +1,9 @@
 import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import React from "react";
-import { useLinkBuilder, useTheme } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { images } from "@/constants/images";
 
 const TabBar = ({ state, descriptors, navigation }: any) => {
-  const { colors } = useTheme();
-  const { buildHref } = useLinkBuilder();
-
   return (
     <View
       style={{

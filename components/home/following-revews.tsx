@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, FlatList } from "react-native";
 import React from "react";
 
 const UsersData = {
@@ -79,22 +79,23 @@ const FollowingReviews = () => {
   return (
     <>
       <Text className="text-white text-base font-bold text-center mb-5 px-5">
-        Avaliações Recentes
+        Tasted Recently
       </Text>
 
-      <ScrollView
-        className="  w-full overflow-hidden px-5"
-        contentContainerStyle={{
-          gap: 12,
-        }}
+      <FlatList
+        data={UsersData.result}
+        keyExtractor={(_, index) => index.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
-      >
-        {UsersData.result.map((item, index) => (
-          <View key={index} className=" items-center justify-center gap-2">
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          gap: 12,
+        }}
+        renderItem={({ item }) => (
+          <View className="items-center justify-center gap-2">
             <Image
               source={{ uri: item.image }}
-              className="w-20 h-20 rounded-full "
+              className="w-20 h-20 rounded-full"
             />
             <View className="bg-red-500 px-2 rounded-full mt-[-18px]">
               <Text className="text-white text-sm font-bold text-center">
@@ -109,8 +110,8 @@ const FollowingReviews = () => {
               {item.name.first}
             </Text>
           </View>
-        ))}
-      </ScrollView>
+        )}
+      />
     </>
   );
 };
