@@ -1,22 +1,27 @@
 import React from "react";
 import { Tabs } from "expo-router";
 import TabBar from "@/components/tabbar";
-import { Button, ImageBackground, TouchableOpacity } from "react-native";
+import {
+  Button,
+  ImageBackground,
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native";
 import { images } from "@/constants/images";
 import Icon from "react-native-vector-icons/Ionicons";
 
 const _layout = () => {
   return (
     <>
-      <TouchableOpacity className="absolute bottom-28 right-5 z-50 w-16 h-16 bg-slate-50 rounded-full">
+      <TouchableOpacity className="absolute bottom-28 right-5 z-50 w-16 h-16 bg-[#26263b] border-white  rounded-full">
         <ImageBackground
-          source={images.highlight}
+          // source={images.highlight}
           className="w-full h-full rounded-full overflow-hidden justify-center items-center"
           resizeMode="cover"
         >
           <Icon
             name="add"
-            color="black"
+            color="white"
             size={30}
             // style={{ position: "absolute", bottom: 0, right: 0 }}
           />

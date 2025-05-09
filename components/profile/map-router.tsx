@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import MapView from "react-native-maps";
 
-const MapRoute = () => {
+const MapRoute = ({ id }: { id: string }) => {
   return (
     <View
       style={{

@@ -43,22 +43,22 @@ const CustomBackground = ({
   //   transform: [{ translateX: translateX.value }],
   // }));
   return (
-    <View className="flex-1 bg-[#040015]">
+    <View className="flex-1 bg-[#191919]">
       <LinearGradient
-        colors={["rgba(129,117,246,0.2)", "rgba(0,0,0,0.2)"]}
+        colors={["rgba(129,117,246,0.2)", "rgba(0,0,0,0.5)"]}
         locations={[0, 0.3]} // 0% e 30%
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
         style={{ flex: 1 }}
       >
-        <Image
+        {/* <Image
           source={images.logo}
           className="absolute z-0 opacity-10  top-[-280] left-[-80]"
           style={{
             width: 340,
             height: 480,
           }}
-        />
+        /> */}
         {/* <Animated.View style={[{ flex: 1 }, animatedStyle]}> */}
         {children}
         {/* </Animated.View> */}

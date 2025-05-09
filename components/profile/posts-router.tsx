@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import Posts from "../home/posts";
 
-const PostsRoute = () => {
+const PostsRoute = ({ id }: { id: string }) => {
   return (
     <View
       style={{
@@ -11,7 +11,7 @@ const PostsRoute = () => {
         alignItems: "center",
       }}
     >
-      <Posts html={false} />
+      <Posts id={id} />
     </View>
   );
 };

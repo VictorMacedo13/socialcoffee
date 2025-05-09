@@ -55,11 +55,11 @@ const Profile = ({ id }: { id: string }) => {
   const renderScene = ({ route }: any) => {
     switch (route.key) {
       case "posts":
-        return <PostsRoute />;
+        return <PostsRoute id={id} />;
       case "Map":
-        return <MapRoute />;
+        return <MapRoute id={id} />;
       case "More":
-        return <MoreRoute />;
+        return <MoreRoute id={id} />;
       default:
         return null;
     }

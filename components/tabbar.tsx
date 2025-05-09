@@ -1,22 +1,23 @@
 import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
-import { images } from "@/constants/images";
+import { BlurView } from "expo-blur";
 
 const TabBar = ({ state, descriptors, navigation }: any) => {
   return (
-    <View
+    <BlurView
+      intensity={70}
+      tint="dark"
       style={{
-        backgroundColor: "#0f0d23",
-        flexDirection: "row",
-        marginHorizontal: 20,
         position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingBottom: 26,
         borderWidth: 1,
         borderColor: "#0f0d23",
-        bottom: 26,
-        borderCurve: "continuous",
-        borderRadius: 25,
-        shadowOpacity: 0,
+        flexDirection: "row",
+        backgroundColor: "rgba(38,38,59,0.6 )", // fallback para Android
       }}
     >
       {state.routes.map((route: any, index: number) => {
@@ -28,7 +29,7 @@ const TabBar = ({ state, descriptors, navigation }: any) => {
             ? options.title
             : route.name;
 
-        const iconName = options.tabBarIcon() || "home";
+        const iconName = options.tabBarIcon() || "?";
 
         const isFocused = state.index === index;
 
@@ -56,10 +57,10 @@ const TabBar = ({ state, descriptors, navigation }: any) => {
             key={route.name}
             style={{
               flex: 1,
-              justifyContent: "center",
+              justifyContent: "flex-start",
               alignItems: "center",
-              backgroundColor: isFocused ? "#fff" : "transparent",
-              borderRadius: 25,
+              backgroundColor: isFocused ? "transparent" : "transparent",
+              // borderRadius: 25,
             }}
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -68,24 +69,27 @@ const TabBar = ({ state, descriptors, navigation }: any) => {
             onLongPress={onLongPress}
           >
             {!isFocused ? (
-              <View>
+              <View className="flex flex-1 w-full flex-col min-h-16  rounded-full min-w-[100px] items-center justify-center overflow-hidden">
                 <Icon name={iconName} size={20} color="#A8B5DB" />
-              </View>
-            ) : (
-              <ImageBackground
-                source={images.highlight}
-                className="flex flex-1 w-full flex-row min-h-16  rounded-full min-w-[100px] items-center justify-center  overflow-hidden"
-              >
-                <Icon name={iconName} size={20} color="#151312" />
-                <Text className=" text-secondary text-base font-semibold ml-2">
+                <Text className=" text-[#A8B5DB] text-sm font-semibold ">
                   {label}
                 </Text>
-              </ImageBackground>
+              </View>
+            ) : (
+              <View
+                // source={images.highlight}
+                className="flex flex-1 w-full flex-col min-h-16  rounded-full min-w-[100px] items-center justify-center overflow-hidden"
+              >
+                <Icon name={iconName} size={20} color="white" />
+                <Text className=" text-white text-sm font-semibold ">
+                  {label}
+                </Text>
+              </View>
             )}
           </TouchableOpacity>
         );
       })}
-    </View>
+    </BlurView>
   );
 };
 
